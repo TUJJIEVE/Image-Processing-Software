@@ -20,9 +20,10 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+To setup juicyPixels and REPA for haskell :
+ For linux type on terminal "sudo apt install libghc-juicypixels-prof then type "sudo apt install libghc-repa-dev"
+https://packages.ubuntu.com/source/xenial/haskell-repa
+https://packages.ubuntu.com/source/artful/haskell-juicypixels
 
 ```
 Give the example
