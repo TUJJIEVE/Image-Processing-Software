@@ -20,6 +20,10 @@ Give examples
 
 ### Installing
 
+To install glade for GUI Interface development:
+```
+sudo apt install glade
+```
 To setup juicyPixels and REPA for haskell :
 
 For juicypixels lib
@@ -33,6 +37,7 @@ sudo apt install libghc-repa-dev
 ```
 For more details :
  https://packages.ubuntu.com/source/xenial/haskell-repa
+ 
  https://packages.ubuntu.com/source/artful/haskell-juicypixels
 
 
