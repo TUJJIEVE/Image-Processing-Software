@@ -21,21 +21,20 @@ Give examples
 ### Installing
 
 To setup juicyPixels and REPA for haskell :
- For linux type on terminal "sudo apt install libghc-juicypixels-prof then type "sudo apt install libghc-repa-dev"
-https://packages.ubuntu.com/source/xenial/haskell-repa
-https://packages.ubuntu.com/source/artful/haskell-juicypixels
+
+For juicypixels lib
+```
+sudo apt install libghc-juicypixels-dev
+```
+For REPA lib
 
 ```
-Give the example
+sudo apt install libghc-repa-dev
 ```
+For more details :
+ https://packages.ubuntu.com/source/xenial/haskell-repa
+ https://packages.ubuntu.com/source/artful/haskell-juicypixels
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
