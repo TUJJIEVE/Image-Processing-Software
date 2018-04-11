@@ -70,7 +70,55 @@ isBoundary length breadth (Z:.a:.b:.c) = (a>= length-1 || a==0) || (b>=breadth-1
 normalize :: Float -> Channel -> Channel
 normalize n  = R.map (/n) 
 
+laplaceStencil:: A.Stencil DIM2 Float
+laplaceStencil = [stencil2| -1 -1 -1 -1 -1
+							-1 -1 -1 -1 -1 
+							-1 -1 24 -1 -1
+							-1 -1 -1 -1 -1
+							-1 -1 -1 -1 -1|]
 
+{-sobelXStencil :: A.Stencil DIM2 Float
+sobelXStencil = [stencil2| -1 0 1
+						  -2 0 2
+						  -1 0 1|]
+
+sobelYStecil :: A.Stencil DIM2 Float
+sobelYStencil = [stencil2| -1 -2 -1
+							0  0  0
+							1  2  1 |]-}
+
+
+
+gaussStencil :: A.Stencil DIM2 Float 
+gaussStencil = 	[stencil2| 2 4 5 4 2
+						  4 9 12 9 4
+						  5 12 15 12 5
+						  4 9 12 9 4
+						  2 4 5 4 2 |]
+ 
+
+applyStencil :: A.Stencil DIM2 Float -> Channel -> Channel
+applyStencil stencil arr = delay $ mapStencil2 (A.BoundConst 0) stencil arr                                  	    
+
+
+getChannel :: Int-> PartImage -> Channel
+getChannel index imgArr = R.traverse imgArr (\(Z:.a:.b:._) -> (Z:.a:.b)) (\f (Z:.a:.b) -> (f (Z:.a:.b:.index)) * 255.0)
+
+
+
+edgeDetection :: Filter
+edgeDetection imgArr = R.fromFunction (Z:.length:.breadth:.3) formArray	
+							where 
+								_:.length:.breadth:._ = R.extent imgArr
+
+								t1 = applyStencil laplaceStencil $ (getChannel 0 imgArr)
+								t2 = applyStencil laplaceStencil $ (getChannel 1 imgArr)
+								t3 = applyStencil laplaceStencil $ (getChannel 2 imgArr)
+
+								formArray (Z:.a:.b:.c) = case c of
+														0 -> (t1 ! (Z:.a:.b)) / 255.0 
+														1 -> (t2 ! (Z:.a:.b)) / 255.0
+														2 -> (t3 ! (Z:.a:.b)) / 255.0
 
 
 gaussianBlur :: Filter
