@@ -1,7 +1,7 @@
 ## haskell-2
 haskell-2 created by GitHub Classroom 
 
-# IFCS :  Image processing and colouring software
+# IPCS :  Image processing and colouring software
 
 This software is made as a project for 2018-2019 spring POPL course in IIT hyderabad
 It's an Editing software for images with cool filters 
