@@ -35,6 +35,12 @@ For REPA lib
 ```
 sudo apt install libghc-repa-dev
 ```
+For Gtk lib
+```
+sudo apt install libghc-gtk-dev
+````
+
+
 For more details :
  https://packages.ubuntu.com/source/xenial/haskell-repa
  
