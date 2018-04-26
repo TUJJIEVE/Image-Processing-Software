@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="2.24"/>
+  <!-- interface-naming-policy project-wide -->
+  <!-- not working as root need to do somthing-->
+  <object class="GtkWindow" id="main_window">
+    <property name="width_request">410</property>
+    <property name="can_focus">True</property>
+    <property name="title" translatable="yes">FILTORI-1</property>
+    <property name="resizable">False</property>
+    <child>
+      <object class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+	     <property name="use-underline">True</property>	
+            <property name="label" translatable="yes">Enter the path of image file below</property>
+	    
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+	   
+          </packing>
+        </child>
+	<child>
+              <object class="GtkEntry" id="path">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+        </child>
+	 <child>
+          <object class="GtkLabel" id="label2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+	     <property name="use-underline">True</property>	
+            <property name="label" translatable="yes">Enter valid filter id below</property>
+	    
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+	   
+          </packing>
+        </child>
+	<child>
+	 <object class = "GtkVbox" id="vbox2">
+	    <child>
+		<object class="GtkHBox" id="hbox1">
+        	<property name="visible">True</property>
+       	        <property name="can_focus">False</property>
+		 <child>
+         	   <object class="GtkButton" id="h1-1">
+	            <property name="label">1 : bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">1</property>
+        	  </packing>
+	        </child>
+		<child>
+         	   <object class="GtkButton" id="h1-2">
+	            <property name="label">2 :bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">2</property>
+        	  </packing>
+	        </child>
+		<child>
+         	   <object class="GtkButton" id="h1-3">
+	            <property name="label">3 : bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">4</property>
+        	  </packing>
+	        </child>
+		 <property name ="position">1</property>
+	     </object>
+	    </child>
+	    <child>
+		<object class="GtkHBox" id="hbox2">
+        	<property name="visible">True</property>
+       	        <property name="can_focus">False</property>
+		 <child>
+         	   <object class="GtkButton" id="h2-1">
+	            <property name="label">4 : bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">1</property>
+        	  </packing>
+	        </child>
+		<child>
+         	   <object class="GtkButton" id="h2-2">
+	            <property name="label">5 : bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">2</property>
+        	  </packing>
+	        </child>
+		<child>
+         	   <object class="GtkButton" id="h2-3">
+	            <property name="label">6	 : bla</property>
+        	    <property name="use_action_appearance">False</property>
+        	    <property name="visible">True</property>
+        	    <property name="can_focus">True</property>
+        	    <property name="receives_default">True</property>
+        	    <property name="border_width">7</property>
+        	    <property name="use_stock">True</property>
+        	  </object>
+        	  <packing>
+        	    <property name="expand">True</property>
+        	    <property name="fill">True</property>
+        	    <property name="padding">5</property>
+        	    <property name="position">3</property>
+        	  </packing>
+	        </child>
+		 <property name ="position">2</property>
+	     </object>
+	    </child>
+	    <property name ="position">3</property>
+	 </object>
+     	</child>
+	
+	<child>
+          <object class="GtkLabel" id="Program details">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+	    <property name="use-underline">True</property>	
+            <property name="label" translatable="yes">Mess - ages:</property>
+	    
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">5</property>
+	   
+          </packing>
+        </child>
+	<child>
+              <object class="GtkEntry" id="output">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">6</property>
+              </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="convert">
+            <property name="label">convert to imagearray</property>
+            <property name="use_action_appearance">False</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="border_width">7</property>
+            <property name="use_stock">True</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="padding">5</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+	<child>
+          <object class="GtkImage" id="image">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="stock">gtk-missing-image</property>
+            <property name="icon_size">6</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">9</property>
+          </packing>
+        </child>
+	 <child>
+          <object class="GtkButton" id="done">
+            <property name="label">save</property>
+            <property name="use_action_appearance">False</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="border_width">7</property>
+            <property name="use_stock">True</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="padding">5</property>
+            <property name="position">8</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
