@@ -24,6 +24,7 @@ import qualified Data.Array.Repa.Stencil as A
 import Language.Haskell.TH.Quote (QuasiQuoter)
 import Data.Array.Repa.Slice
 import System.Environment
+import Stencils
 
 type PartImage = Array D DIM3 Float
 type Filter = PartImage -> PartImage
@@ -63,44 +64,6 @@ toSepia arr = R.traverse arr id sepiaTransform
 									if tb >=1.0 then 1
 									else tb		
 
-isBoundary:: Int -> Int -> DIM3 -> Bool
-isBoundary length breadth (Z:.a:.b:.c) = (a>= length-1 || a==0) || (b>=breadth-1 || b==0)
-
-
-normalize :: Float -> Channel -> Channel
-normalize n  = R.map (/n) 
-
-laplaceStencil:: A.Stencil DIM2 Float
-laplaceStencil = [stencil2| -1 -1 -1 -1 -1
-							-1 -1 -1 -1 -1 
-							-1 -1 24 -1 -1
-							-1 -1 -1 -1 -1
-							-1 -1 -1 -1 -1|]
-
-{-sobelXStencil :: A.Stencil DIM2 Float
-sobelXStencil = [stencil2| -1 0 1
-						  -2 0 2
-						  -1 0 1|]
-
-sobelYStecil :: A.Stencil DIM2 Float
-sobelYStencil = [stencil2| -1 -2 -1
-							0  0  0
-							1  2  1 |]-}
-
-
-
-gaussStencil :: A.Stencil DIM2 Float 
-gaussStencil = 	[stencil2| 2 4 5 4 2
-						  4 9 12 9 4
-						  5 12 15 12 5
-						  4 9 12 9 4
-						  2 4 5 4 2 |]
- 
-
-applyStencil :: A.Stencil DIM2 Float -> Channel -> Channel
-applyStencil stencil arr = delay $ mapStencil2 (A.BoundConst 0) stencil arr                                  	    
-
-
 getChannel :: Int-> PartImage -> Channel
 getChannel index imgArr = R.traverse imgArr (\(Z:.a:.b:._) -> (Z:.a:.b)) (\f (Z:.a:.b) -> (f (Z:.a:.b:.index)) * 255.0)
 
@@ -136,11 +99,6 @@ gaussianBlur imgArr = R.fromFunction (Z:.length:.breadth:.3) formArray
 														2 -> (t3 ! (Z:.a:.b)) / 255.0
 
 
-
-passes :: Int -> PartImage -> Filter -> PartImage
-passes 1 imgArr filter = filter imgArr 
-passes n imgArr filter = passes (n-1) (filter imgArr) filter
-
 gausBlur:: Filter
 gausBlur imgArr = R.traverse imgArr id blurImage
 				where 
@@ -153,6 +111,14 @@ gausBlur imgArr = R.traverse imgArr id blurImage
 
 
 
+passes :: Int -> PartImage -> Filter -> PartImage
+passes 1 imgArr filter = filter imgArr 
+passes n imgArr filter = passes (n-1) (filter imgArr) filter
 
 
 
+
+
+
+normalize :: Float -> Channel -> Channel
+normalize n  = R.map (/n) 
