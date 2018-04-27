@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk+" version="2.24"/>
   <!-- interface-naming-policy project-wide -->
-  <!-- not working as root need to do somthing-->
+  <!-- not working in root and should install somthing-->
   <object class="GtkWindow" id="main_window">
     <property name="width_request">410</property>
     <property name="can_focus">True</property>
@@ -49,7 +49,7 @@
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">2</property>
 	   
           </packing>
         </child>
@@ -190,6 +190,17 @@
 	   
           </packing>
         </child>
+  <child>
+              <object class="GtkEntry" id="filter">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">4</property>
+              </packing>
+        </child>
 	<child>
               <object class="GtkEntry" id="output">
                 <property name="visible">True</property>
@@ -201,23 +212,7 @@
                 <property name="position">6</property>
               </packing>
         </child>
-        <child>
-          <object class="GtkButton" id="convert">
-            <property name="label">convert to imagearray</property>
-            <property name="use_action_appearance">False</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="border_width">7</property>
-            <property name="use_stock">True</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="padding">5</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
+    
 	<child>
           <object class="GtkImage" id="image">
             <property name="visible">True</property>
@@ -245,7 +240,7 @@
             <property name="expand">True</property>
             <property name="fill">True</property>
             <property name="padding">5</property>
-            <property name="position">8</property>
+            <property name="position">7</property>
           </packing>
         </child>
       </object>
