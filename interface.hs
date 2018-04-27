@@ -1,11 +1,12 @@
 import Graphics.UI.Gtk
 import Graphics.UI.Gtk.Builder
 
+addd :: Monad m => [Char] -> [Char] -> m [Char]
 addd x y = do 
             let z = x ++ " " ++ y 
             return z
 
-
+main :: IO ()
 main = do
     initGUI
 
