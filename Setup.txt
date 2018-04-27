@@ -1,0 +1,4 @@
+sudo apt install glade
+sudo apt install libghc-juicypixels-dev
+sudo apt install libghc-repa-dev
+sudo apt install libghc-gtk-dev
