@@ -2,8 +2,8 @@ import Graphics.UI.Gtk
 import Graphics.UI.Gtk.Builder
 
 addd x y = do 
-            let shit = x ++ " " ++ y 
-            return shit
+            let z = x ++ " " ++ y 
+            return z
 
 
 main = do
@@ -32,7 +32,7 @@ main = do
               --    where y = add name "shit"
 
     onClicked filter1 $ do
-		 entrySetText fid "selected filter1"
+		 entrySetText fid "selected filter1"  
     onClicked filter2 $ do
 		 entrySetText fid "selected filter2"
     onClicked filter3 $ do
@@ -46,8 +46,8 @@ main = do
     onClicked done $ do
          entrySetText output "processing...wait till it finishes.."
          path <- entryGetText imgpath
-         id <- entryGetText fid 
-         y <- addd path id
+         id <- entryGetTexidt fid           -- 
+         y <- addd path id              
          putStrLn y
 		 --entrySetText output "processing finished"
     
