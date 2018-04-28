@@ -7,15 +7,12 @@ import Control.Monad.ST
 import Data.Array.Repa (Array, DIM1, DIM2,DIM3, U, D, Z (..), (:.)(..), (!))
 import System.Environment (getArgs)
 import System.FilePath (replaceExtension)
-import qualified Codec.Picture.Types as M -- For juicy pixel api's
+import qualified Codec.Picture.Types as M -- For juicy pixel api'selected
 import qualified Data.Array.Repa     as R -- For repa
 import qualified Filters as F -- for Filters
 import qualified Graphics.UI.Gtk 	as G  -- For graphics
 import qualified Graphics.UI.Gtk.Builder as B  -- for Builder objects
 
-
--- ghc -O2 fwdense1 -threaded -fllvm  -fforce-recomp
--- ./fwdense1 +RTS -s -N4
 
 {-
 
@@ -27,6 +24,8 @@ The Alpha channel is used to test the opacity of the pixels
 If RGB8 value is [123,12,0] then RGBF values are [123/255.0,12/255.0,0255.0]
 
 -}
+
+
 type PartImage = Array D DIM3 Float
 type Filter = PartImage -> PartImage
 
@@ -60,11 +59,13 @@ toImage imgArray = generateImage generator width height
 addFilter :: PartImage -> String -> IO(Array D DIM3 Float)
 addFilter imgArray filter = do 
 						case filter of 
-							"selected filter 1" -> return(F.passes 2 imgArray F.toSepia)
-							"selected filter 2" -> return(F.passes 2 imgArray F.gaussianBlur)
-							"selected filter 3" -> return(F.passes 1 imgArray F.toBlacknWhite)
-							"selected filter 4" -> return(F.passes 1 imgArray F.toGrayScale)
-							"selected filter 5" -> return(F.passes 1 imgArray F.edgeDetection)  
+							"Sepia" -> return(F.passes 3 imgArray F.toSepia)
+							"Gaussian Blur" -> return(F.passes 1 imgArray F.gaussianBlur)
+							"Saturate" -> return(F.saturate imgArray 2)
+							"Gray Scale" -> return(F.passes 2 imgArray F.toGrayScale)
+							"Edge detection" -> return(F.passes 1 imgArray F.edgeDetection)
+							"Emboss" -> return(F.passes 1 imgArray F.emboss)  
+
 
 {-processImage function takes input the image file path and the selected filter and returns sucess if filter is applied-}
 processImage :: String -> String -> IO(String)
@@ -111,7 +112,7 @@ main = do
     G.onClicked filter1 $ do
 		 G.entrySetText fid "Gaussian Blur"  
     G.onClicked filter2 $ do
-		 G.entrySetText fid "Black & White"
+		 G.entrySetText fid "Saturate"
     G.onClicked filter3 $ do
 		 G.entrySetText fid "Gray Scale"
     G.onClicked filter4 $ do
@@ -119,7 +120,7 @@ main = do
     G.onClicked filter5 $ do
 		 G.entrySetText fid "Edge detection"
     G.onClicked filter6 $ do
-		 G.entrySetText fid "selected filter 6"
+		 G.entrySetText fid "Emboss"
     G.onClicked done $ do
          G.entrySetText output "processing...wait till it finishes.."
          path <- G.entryGetText imgpath
@@ -130,22 +131,6 @@ main = do
     G.widgetShowAll mainWindow
     G.mainGUI
 
-
-main1 :: IO()
-main1 = do
-	let path = "test.jpg"
-	eimg <- readImage path
-	let savePath = "5.jpg"
-	case eimg of 
-		Left err -> putStrLn ("Error loading the file " ++ err)
-		Right img -> do
-			imgArray <- getImageArr $ M.promoteImage $ convertRGB8 img 	-- ImgArray contains the Pixel value
-			
-			finalArray <- R.computeP $  F.passes 5 imgArray F.toSepia   -- To obtain manifest array      
-			saveJpgImage 100 savePath (ImageRGBF $ toImage finalArray)
-			
-
-	return ()
 
 
 
