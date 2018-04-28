@@ -13,14 +13,9 @@
 
      sudo apt install libghc-gtk-dev
 
- unzip  graphics.zip 
+Follow instructions given inside projects folder
 
 
- open terminal in this path
-
-	run 
-	
-	  $./setup.sh
 
 
 
