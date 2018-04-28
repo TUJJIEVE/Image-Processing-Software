@@ -85,22 +85,23 @@ processImage imagePath savePath filter = do
 
    
 main = do
-    G.initGUI
 
-    builder <- B.builderNew
-    B.builderAddFromFile builder "interface.glade"
+    G.initGUI -- For initializing the GUI
 
-    mainWindow <- B.builderGetObject builder G.castToWindow "main_window"
-    G.onDestroy mainWindow G.mainQuit
+    builder <- B.builderNew 
+    B.builderAddFromFile builder "interface.glade"  -- For Initializing the builder
+
+    mainWindow <- B.builderGetObject builder G.castToWindow "main_window" -- For initializing the main window
+    G.onDestroy mainWindow G.mainQuit       -- For destroying the window on quit
     
-    imgpath <- B.builderGetObject builder G.castToEntry "path"
-    savepath <- B.builderGetObject builder G.castToEntry "savepath"
+    imgpath <- B.builderGetObject builder G.castToEntry "path"     -- textbar saves the image path entered
+    savepath <- B.builderGetObject builder G.castToEntry "savepath" -- textbar saves the save path entered
   
-    output <- B.builderGetObject builder G.castToEntry "output"
+    output <- B.builderGetObject builder G.castToEntry "output"    -- for printing the sucess of image conversion
     G.entrySetText output "please click OK button after selecting filter and entring path "
     G.entrySetText savepath "Enter output file name"
     G.entrySetText imgpath "Enter input file path here !"
- 
+    -- For linking the buttons 
     done    <- B.builderGetObject builder G.castToButton "done"
     filter1 <- B.builderGetObject builder G.castToButton "h1-1"
     filter2 <- B.builderGetObject builder G.castToButton "h1-2"
@@ -113,8 +114,8 @@ main = do
 		     --name <- entryGetText imgpath
              --putStrLn (y) 
               --    where y = add name "shit"
-
-    G.onClicked filter1 $ do
+     -- When a particular button is clicked text field is set accordingly
+    G.onClicked filter1 $ do                  
 		 G.entrySetText fid "Gaussian Blur"  
     G.onClicked filter2 $ do
 		 G.entrySetText fid "Saturate"
@@ -130,8 +131,8 @@ main = do
          G.entrySetText output "processing...wait till it finishes.."
          inpath <- G.entryGetText imgpath
          outpath <- G.entryGetText savepath
-         id <- G.entryGetText fid 		           -- 
-         y <- processImage inpath outpath id              
+         id <- G.entryGetText fid 		    -- for getting which filter to apply        -- 
+         y <- processImage inpath outpath id     -- for processing the image         
          G.entrySetText output y
     
     G.widgetShowAll mainWindow
