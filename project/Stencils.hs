@@ -1,4 +1,8 @@
 {-# LANGUAGE QuasiQuotes #-}
+{- Module containing various stencils used for convolution of image for 
+	adding several effects to the image
+
+-}
 
 module Stencils
 (
@@ -9,6 +13,7 @@ highpassStencil2,
 highPassStencil,
 gaussStencil,
 isBoundary,
+embossStencil,
 applyStencil
 ) where 
 
@@ -48,6 +53,10 @@ highpassStencil2 = [stencil2| 0 -25 0
 							 -25 200 -25
 							  0 -25 0 |]
 
+embossStencil :: A.Stencil DIM2 Float
+embossStencil = [stencil2| -2 -1 0
+							-1 1 1
+							0 1 2|]
 
 gaussStencil :: A.Stencil DIM2 Float 
 gaussStencil = [stencil2| 2 4 5 4 2
@@ -56,9 +65,11 @@ gaussStencil = [stencil2| 2 4 5 4 2
 						  4 9 12 9 4
 						  2 4 5 4 2 |]
 
+{-Function to apply stencil taking stencil as a parameter and the image array as sencond parameter-}
 applyStencil :: A.Stencil DIM2 Float -> Channel -> Channel
 applyStencil stencil arr = delay $ mapStencil2 (A.BoundConst 0) stencil arr
 
+{-Function to check if the stencil is lying in the boundary-}
 isBoundary:: Int -> Int -> DIM3 -> Bool
 isBoundary length breadth (Z:.a:.b:.c) = (a>= length-1 || a==0) || (b>=breadth-1 || b==0)
 
