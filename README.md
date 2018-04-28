@@ -1,10 +1,10 @@
 ## haskell-2
 haskell-2 created by GitHub Classroom 
 
-# Ufiler 
+# Ufilter 
 
 This software is made as a project for 2018-2019 spring POPL course in IIT hyderabad
-you can make your good pictures more beautifull with this software. 
+*you can make your good pictures more beautifull with this software. 
 
 
 ### Prerequisites
@@ -49,5 +49,5 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## Acknowledgments
 
-* wwww.google.com
+* www.google.com
 
