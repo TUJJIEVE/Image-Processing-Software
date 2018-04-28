@@ -68,10 +68,10 @@ addFilter imgArray filter = do
 
 
 {-processImage function takes input the image file path and the selected filter and returns sucess if filter is applied-}
-processImage :: String -> String -> IO(String)
-processImage imagePath filter = do
+processImage :: String -> String -> String -> IO(String)
+processImage imagePath savePath filter = do
 						eimg <- readImage imagePath
-						let savePath = "newModed.jpg"
+						
 						case eimg of 
 							Left err -> putStrLn ("Error loading the file " ++ err)
 							Right img -> do
@@ -94,8 +94,13 @@ main = do
     G.onDestroy mainWindow G.mainQuit
     
     imgpath <- B.builderGetObject builder G.castToEntry "path"
+    savepath <- B.builderGetObject builder G.castToEntry "savepath"
+  
     output <- B.builderGetObject builder G.castToEntry "output"
     G.entrySetText output "please click OK button after selecting filter and entring path "
+    G.entrySetText savepath "Enter output file name"
+    G.entrySetText imgpath "Enter input file path here !"
+ 
     done    <- B.builderGetObject builder G.castToButton "done"
     filter1 <- B.builderGetObject builder G.castToButton "h1-1"
     filter2 <- B.builderGetObject builder G.castToButton "h1-2"
@@ -123,9 +128,10 @@ main = do
 		 G.entrySetText fid "Emboss"
     G.onClicked done $ do
          G.entrySetText output "processing...wait till it finishes.."
-         path <- G.entryGetText imgpath
+         inpath <- G.entryGetText imgpath
+         outpath <- G.entryGetText savepath
          id <- G.entryGetText fid 		           -- 
-         y <- processImage path id              
+         y <- processImage inpath outpath id              
          G.entrySetText output y
     
     G.widgetShowAll mainWindow
