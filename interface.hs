@@ -23,9 +23,13 @@ main = do
     entrySetText imgpath "Enter input file path here !"
 
     done    <- builderGetObject builder castToButton "done"
-    filter1 <- builderGetObject builder castToButton "h1-1"
-    filter2 <- builderGetObject builder castToButton "h1-2"
-    filter3 <- builderGetObject builder castToButton "h1-3"
+    filter1_1 <- builderGetObject builder castToButton "h1-1-1"
+    filter1_2 <- builderGetObject builder castToButton "h1-1-2"
+    filter1_3 <- builderGetObject builder castToButton "h1-1-3"
+   -- filter1_4 <- builderGetObject builder castToButton "h1-1-4"
+    --filter1_5 <- builderGetObject builder castToButton "h1-1-5"
+   --filter2 <- builderGetObject builder castToButton "h1-2"
+   -- filter3 <- builderGetObject builder castToButton "h1-3"
     filter4 <- builderGetObject builder castToButton "h2-1"
     filter5 <- builderGetObject builder castToButton "h2-2"
     filter6 <- builderGetObject builder castToButton "h2-3"
@@ -35,14 +39,14 @@ main = do
              --putStrLn (y) 
               --    where y = add name "shit"
 
-    onClicked filter1 $ do
-		 entrySetText fid "selected filter1"
-    onClicked filter2 $ do
-		 entrySetText fid "selected filter2"
-    onClicked filter3 $ do
-		 entrySetText fid "selected filter3"
+    onClicked filter1_1 $ do
+		 entrySetText fid "selected filter1 1 times"
+    onClicked filter1_2 $ do
+         entrySetText fid "selected filter1 2 times"
+    onClicked filter1_3 $ do
+         entrySetText fid "selected filter1 3 times"
     onClicked filter4 $ do
-		 entrySetText fid "selected filter4"
+         entrySetText fid "selected filter4"
     onClicked filter5 $ do
 		 entrySetText fid "selected filter5"
     onClicked filter6 $ do
