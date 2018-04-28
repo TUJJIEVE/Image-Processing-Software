@@ -100,7 +100,7 @@ getTempb h = myif ((h - 1.0 / 3.0) < 0) ((h - 1.0 / 3.0)+1) (h - 1.0 / 3.0)
 
 {-Function to convert the HSL values to RGB values-}
 
-addtwoImages
+
 
 convertHSLtoRGB :: PartImage -> PartImage
 convertHSLtoRGB hslArr = R.traverse hslArr id toRGB
@@ -165,8 +165,6 @@ toSepia arr = R.traverse arr id sepiaTransform
 {-Function to get the channels from the image Array-}
 getChannel :: Int-> PartImage -> Channel
 getChannel index imgArr = R.traverse imgArr (\(Z:.a:.b:._) -> (Z:.a:.b)) (\f (Z:.a:.b) -> (f (Z:.a:.b:.index)) * 255.0)
-
-
 
 {-Function for edge detection filter-}
 edgeDetection :: Filter
