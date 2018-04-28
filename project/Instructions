@@ -1,0 +1,9 @@
+Instructions To compile
+1. First run the setup.sh file by typing sudo ./setup.sh `whoami`
+
+After installing dependencies type in terminal
+2. ghc -O2 --make main.hs -threaded -fforce-rcomp
+
+To execute 
+3. ./main +RTS -s -N4
+
