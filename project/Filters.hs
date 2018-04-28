@@ -68,10 +68,10 @@ getluminance :: Float -> Float -> Float -> Float
 getluminance r g b = ((getMaxPixel r $ getMaxPixel g b) + (getMinPixel r $ getMinPixel g b)) / 2
 {-Function to get the Saturation values from rgb values-}
 getSaturation :: Float -> Float -> Float -> Float
-getSaturation l maxColor minColor =  myif (l > 0) ((maxColor - minColor)/(maxColor)) ((maxColor-maxColor))
+getSaturation l maxColor minColor =  myif (l < 0.5) ((maxColor - minColor)/(maxColor + minColor)) ((maxColor - minColor)/ (2.0-(maxColor + minColor)))
 {-Function to get the Hue values form rgb values-}
 getHue :: Float -> Float -> Float -> Float -> Float -> Float
-getHue maxColor minColor r g b = (myif (r==maxColor) ((g - b) / (maxColor - minColor)) $ myif (g==maxColor) (2.0 + (b - r) / (maxColor - minColor)) (4.0 + (r - g) / (maxColor - minColor))) * 60.0
+getHue maxColor minColor r g b = (myif (r==maxColor) ((g - b) / (maxColor - minColor)) $ myif (g==maxColor) (2.0 + (b - r) / (maxColor - minColor)) (4.0 + (r - g) / (maxColor - minColor))) / 6
 {-Function to convert the RGB Pixel values to HSL values-}
 convertRGBtoHSL :: PartImage -> PartImage
 convertRGBtoHSL imgArr = R.traverse imgArr id toHSL
@@ -99,6 +99,9 @@ getTempb :: Float -> Float
 getTempb h = myif ((h - 1.0 / 3.0) < 0) ((h - 1.0 / 3.0)+1) (h - 1.0 / 3.0) 
 
 {-Function to convert the HSL values to RGB values-}
+
+addtwoImages
+
 convertHSLtoRGB :: PartImage -> PartImage
 convertHSLtoRGB hslArr = R.traverse hslArr id toRGB
 							where
@@ -139,7 +142,7 @@ saturate imgArr level = convertHSLtoRGB $ R.traverse (convertRGBtoHSL imgArr) id
 								saturateIt get (Z:.a:.b:.c)
 										= case c of 
 											0 -> (get (Z:.a:.b:.c)) 
-											1 -> (get (Z:.a:.b:.c)) + (-1) * (255 - get (Z:.a:.b:.c)) 
+											1 -> (get (Z:.a:.b:.c)) * level 
 											2 -> (get (Z:.a:.b:.c))
 
 
@@ -162,6 +165,7 @@ toSepia arr = R.traverse arr id sepiaTransform
 {-Function to get the channels from the image Array-}
 getChannel :: Int-> PartImage -> Channel
 getChannel index imgArr = R.traverse imgArr (\(Z:.a:.b:._) -> (Z:.a:.b)) (\f (Z:.a:.b) -> (f (Z:.a:.b:.index)) * 255.0)
+
 
 
 {-Function for edge detection filter-}
