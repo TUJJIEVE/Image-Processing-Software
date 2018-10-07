@@ -1,103 +1,54 @@
 ## haskell-2
 haskell-2 created by GitHub Classroom 
 
-# IPCS :  Image processing and colouring software
+# Ufilter 
 
 This software is made as a project for 2018-2019 spring POPL course in IIT hyderabad
-It's an Editing software for images with cool filters 
+*you can make your good pictures more beautifull with this software. 
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+ubuntu operating system : version > 16 .04
 
-```
-Give examples
-```
 
 ### Installing
 
-To install glade for GUI Interface development:
-```
-sudo apt install glade
-```
-To setup juicyPixels and REPA for haskell :
-
-For juicypixels lib
-```
-sudo apt install libghc-juicypixels-dev
-```
-For REPA lib
-
-```
-sudo apt install libghc-repa-dev
-```
-For Gtk lib
-```
-sudo apt install libghc-gtk-dev
-````
-
-
-For more details :
- https://packages.ubuntu.com/source/xenial/haskell-repa
- 
- https://packages.ubuntu.com/source/artful/haskell-juicypixels
+refer to INSTALL file 
 
 
 ## Running the tests
+tried travis for some extent (not while testing UI)
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
 ## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+*[glade](https://glade.gnome.org/) - in making xml files
+*[atom](https://atom.io/)  -text editor
+* [gtk2](https://www.gtk.org/) - in ui
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
-* **srikanth** - *Initial work* - [link](https://github.com)
+* **Ramkishan Pothuganti** - *contact* - [mail](cs16btech11029@iith.ac.in)
+
+* **Ujjieve Thumati** - *contact* - [mail](cs16btech11039@iith.ac.in)
+
+* **Srikanth Sabhavat** - *contact* - [mail](cs16btech11031@iith.ac.in)
+
+
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+*use any where you want :)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* www.google.com
 

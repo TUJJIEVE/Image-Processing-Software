@@ -6,7 +6,7 @@
   <object class="GtkWindow" id="main_window">
     <property name="width_request">410</property>
     <property name="can_focus">True</property>
-    <property name="title" translatable="yes">Ufilter              v1.1</property>
+    <property name="title" translatable="yes">FILTORI-1</property>
     <property name="resizable">False</property>
     <child>
       <object class="GtkVBox" id="vbox1">
@@ -38,18 +38,18 @@
                 <property name="position">1</property>
               </packing>
         </child>
-	<child>
+	 <child>
           <object class="GtkLabel" id="label2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
 	     <property name="use-underline">True</property>	
-            <property name="label" translatable="yes">Select valid filter below</property>
+            <property name="label" translatable="yes">Enter valid filter id below</property>
 	    
           </object>
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">2</property>
 	   
           </packing>
         </child>
@@ -65,14 +65,14 @@
           </packing>
   </child>       
 	<child>
-	<object class = "GtkVbox" id="vbox2">
+	 <object class = "GtkVbox" id="vbox2">
 	    <child>
 		<object class="GtkHBox" id="hbox1">
         	<property name="visible">True</property>
        	        <property name="can_focus">False</property>
-		<child>
+		 <child>
          	   <object class="GtkButton" id="h1-1">
-	            <property name="label">Gaussian</property>
+	            <property name="label">1 : bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -89,7 +89,7 @@
 	        </child>
 		<child>
          	   <object class="GtkButton" id="h1-2">
-	            <property name="label">Saturated</property>
+	            <property name="label">2 :bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -106,7 +106,7 @@
 	        </child>
 		<child>
          	   <object class="GtkButton" id="h1-3">
-	            <property name="label">Grayscale</property>
+	            <property name="label">3 : bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -121,16 +121,16 @@
         	    <property name="position">4</property>
         	  </packing>
 	        </child>
-		<property name ="position">1</property>
+		 <property name ="position">1</property>
 	     </object>
 	    </child>
 	    <child>
 		<object class="GtkHBox" id="hbox2">
         	<property name="visible">True</property>
        	        <property name="can_focus">False</property>
-		<child>
+		 <child>
          	   <object class="GtkButton" id="h2-1">
-	            <property name="label">Sepia</property>
+	            <property name="label">4 : bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -147,7 +147,7 @@
 	        </child>
 		<child>
          	   <object class="GtkButton" id="h2-2">
-	            <property name="label">Edge-detection</property>
+	            <property name="label">5 : bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -164,7 +164,7 @@
 	        </child>
 		<child>
          	   <object class="GtkButton" id="h2-3">
-	            <property name="label">Emboss</property>
+	            <property name="label">6	 : bla</property>
         	    <property name="use_action_appearance">False</property>
         	    <property name="visible">True</property>
         	    <property name="can_focus">True</property>
@@ -179,11 +179,11 @@
         	    <property name="position">3</property>
         	  </packing>
 	        </child>
-		<property name ="position">2</property>
+		 <property name ="position">2</property>
 	     </object>
 	    </child>
-	    <property name ="position">4</property>
-	</object>
+	    <property name ="position">3</property>
+	 </object>
      	</child>
 	
 	<child>
@@ -197,7 +197,7 @@
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">6</property>
+            <property name="position">5</property>
 	   
           </packing>
         </child>
@@ -209,7 +209,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">5</property>
+                <property name="position">4</property>
               </packing>
         </child>
 	<child>
@@ -220,7 +220,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">7</property>
+                <property name="position">6</property>
               </packing>
         </child>
     
@@ -237,7 +237,7 @@
             <property name="position">9</property>
           </packing>
         </child>
-	<child>
+	 <child>
           <object class="GtkButton" id="done">
             <property name="label">save</property>
             <property name="use_action_appearance">False</property>
@@ -251,9 +251,10 @@
             <property name="expand">True</property>
             <property name="fill">True</property>
             <property name="padding">5</property>
-            <property name="position">8</property>
+            <property name="position">7</property>
           </packing>
         </child>
       </object>
     </child>
   </object>
+</interface>
